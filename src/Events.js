@@ -179,8 +179,11 @@ class Events {
 		return this._httpRequest.get(`${this._gcalBaseUrl}${calendarId}/events`, params, this._JWT)
 			.then(resp => {
 				this._checkErrorResponse(200, resp.statusCode, resp.body, resp.statusMessage);
-				let body = typeof resp.body === 'string' ? JSON.parse(resp.body) : resp.body;
-				return body.items;
+        let body = typeof resp.body === 'string' ? JSON.parse(resp.body) : resp.body;
+        return {
+          items: body.items,
+          nextSyncToken: body.nextSyncToken
+        };
 			}).catch(err => {
 				let error = {
 					origin: 'Events.list',

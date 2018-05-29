@@ -1,5 +1,5 @@
 {
-	"name": "node-google-calendar",
+	"name": "@about_hiroppy/node-google-calendar",
 	"version": "1.1.1",
 	"description": "Simple node module that supports Google Calendar APIs",
 	"main": "./src/CalendarAPI.js",
